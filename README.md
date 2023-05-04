@@ -1,4 +1,7 @@
-# star-rail
+# 希望之光：星の穹窿の鉄道
+
+这个项目名称表达了铁道穿越星空，带来希望之光的美丽意境。
+
 opq simple onebot adapter
 
 用法 python ob.py
