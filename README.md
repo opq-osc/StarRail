@@ -1,8 +1,6 @@
 # star-rail
 opq simple onebot adapter
 
-opq simple onebot adapter
-
 用法 python ob.py
 
 很轻，很清凉🍦
@@ -62,5 +60,7 @@ yunzai+OPQ的用法
 2，添加插件，比如，https://gitee.com/Nwflower/atlas
 
 3，按照上面的方法，将obv3内的地址指向你的云崽TRSS后端地址，然后指定和OPQ反向WS对应的地址
+
+4，CD到obv3的目录 执行python obv3.py
 
 4，运行OPQ，发送云崽帮助，应该会有回复
