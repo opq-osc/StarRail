@@ -120,7 +120,7 @@ async def call_api_from_dict(message):
                     with open(item, "rb") as f:
                         item = base64.b64encode(f.read()).decode('utf-8')
                         item_type = "base64_image"
-
+                is_record = False
                 if item_type in {"base64_image", "base64_record"}:
                     is_record = item_type == "base64_record"
                     command_id = 26 if is_record and action == "send_private_msg" else 29 if is_record else 1 if action == "send_private_msg" else 2
