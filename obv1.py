@@ -217,17 +217,22 @@ def transform_message_a_to_b(message: dict) -> dict:
         for at_uin in at_uin_list:
             raw_message = raw_message.replace(f"@{at_uin['Nick']}", f"[CQ:at,qq={at_uin['Uin']}]")
         message_content = f"{at_str} {raw_message} {image_str}".strip()
+        # 这部分遵循此类标准: https://283375.github.io/onebot_v11_vitepress/event/message.html
+        # 其中font字段应为历史遗留问题
         return {
             "post_type": "message",
             "message_type": message_type,
+            "sub_type": message_type,
             "group_id": msg_head["FromUin"],
             "user_id": msg_head["SenderUin"],
             "self_id": msg_head["ToUin"],
             "sender": sender,
+            "font": 0,
             "message_seq": msg_head["MsgSeq"],
             "time": msg_head["MsgTime"],
             "message_id": str(msg_head["MsgUid"]),
             "raw_message": message_content,
+            "original_message": message_content,
             "message": message_content
         }
     elif message_type == "private":
@@ -244,9 +249,11 @@ def transform_message_a_to_b(message: dict) -> dict:
             "user_id": msg_head["SenderUin"],
             "self_id": msg_head["ToUin"],
             "sender": sender,
+            "font": 0,
             "time": msg_head["MsgTime"],
             "message_id": str(msg_head["MsgUid"]),
             "raw_message": message_content,
+            "original_message": message_content,
             "message": message_content
         }
     else:

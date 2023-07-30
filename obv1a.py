@@ -277,14 +277,17 @@ def transform_message_a_to_b(message: dict) -> dict:
         return {
             "post_type": "message",
             "message_type": message_type,
+            "sub_type": message_type,
             "group_id": msg_head["FromUin"],
             "user_id": msg_head["SenderUin"],
             "self_id": msg_head["ToUin"],
             "sender": sender,
+            "font": 0,
             "message_seq": msg_head["MsgSeq"],
             "time": msg_head["MsgTime"],
             "message_id": str(msg_head["MsgUid"]),
             "raw_message": message_content,
+            "original_message": message_content,
             "message": message_content
         }
     elif message_type == "private":
@@ -301,9 +304,11 @@ def transform_message_a_to_b(message: dict) -> dict:
             "user_id": msg_head["SenderUin"],
             "self_id": msg_head["ToUin"],
             "sender": sender,
+            "font": 0,
             "time": msg_head["MsgTime"],
             "message_id": str(msg_head["MsgUid"]),
             "raw_message": message_content,
+            "original_message": message_content,
             "message": message_content
         }
     else:
